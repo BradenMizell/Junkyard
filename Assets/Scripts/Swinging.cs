@@ -30,6 +30,10 @@ public class Swinging : MonoBehaviour
     [Header("Input")]
     public KeyCode swingKey = KeyCode.Mouse0;
 
+    [Header("Audio")]
+    public AudioSource src;
+    public AudioClip swingSound;
+
 
     private void Update()
     {
@@ -90,6 +94,9 @@ public class Swinging : MonoBehaviour
 
     private void StartSwing()
     {
+        src.clip = swingSound;
+        src.Play();
+
         // return if predictionHit not found
         if (predictionHit.point == Vector3.zero) return;
 

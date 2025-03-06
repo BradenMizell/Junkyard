@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Grappling : MonoBehaviour
 {
+
+
     [Header("References")]
     private PlayerMovement pm;
     public Transform cam;
@@ -24,6 +26,10 @@ public class Grappling : MonoBehaviour
 
     [Header("Input")]
     public KeyCode grappleKey = KeyCode.Mouse1;
+
+    [Header("Audio")]
+    public AudioSource src;
+    public AudioClip grappleSound;
 
     private bool grappling;
 
@@ -49,6 +55,8 @@ public class Grappling : MonoBehaviour
 
     private void StartGrapple()
     {
+        src.clip = grappleSound;
+        src.Play();
 
         if (grapplingCdTimer > 0) return;
 

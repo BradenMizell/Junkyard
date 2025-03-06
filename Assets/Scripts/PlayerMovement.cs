@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        TextStuff();
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
@@ -250,20 +251,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #region Text & Debugging
-    /*
+    
     public TextMeshProUGUI text_speed;
-    public TextMeshProUGUI text_mode;
     private void TextStuff()
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        if (OnSlope())
-            text_speed.SetText("Speed: " + Round(rb.velocity.magnitude, 1) + " / " + Round(moveSpeed, 1));
-
-        else
-            text_speed.SetText("Speed: " + Round(flatVel.magnitude, 1) + " / " + Round(moveSpeed, 1));
-
-        text_mode.SetText(state.ToString());
+        text_speed.SetText("Speed: " + Round(flatVel.magnitude, 1));
     }
 
     public static float Round(float value, int digits)
@@ -271,7 +264,7 @@ public class PlayerMovement : MonoBehaviour
         float mult = Mathf.Pow(10.0f, (float)digits);
         return Mathf.Round(value * mult) / mult;
     }
-    */
+    
     #endregion
 
 }
