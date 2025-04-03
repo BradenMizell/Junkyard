@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Grappling : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class Grappling : MonoBehaviour
     public AudioSource src;
     public AudioClip grappleSound;
 
+    [Header("UI")]
+    public GameObject crosshairRed;
+    public GameObject crosshairGreen;
+
     private bool grappling;
 
     private void Start()
@@ -40,6 +45,21 @@ public class Grappling : MonoBehaviour
 
     private void Update()
     {
+        //updates crosshair
+        RaycastHit hit;
+
+        if (Physics.Raycast(cam.position, cam.forward, out hit, maxGrappleDistance, whatIsGrappleable))
+        {
+            crosshairGreen.SetActive(true);
+            crosshairRed.SetActive(false);
+
+        }
+        else
+        {
+            crosshairGreen.SetActive(false);
+            crosshairRed.SetActive(true);
+        }
+
         if (Input.GetKeyDown(grappleKey)) StartGrapple();
 
 

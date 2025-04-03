@@ -7,21 +7,10 @@ public class MainMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("Scenes/SampleScene");
-    }
-
-    public void HowToPlay()
-    {
-        SceneManager.LoadScene("Scenes/HowToPlay");
-    }
-
-    public void Credits()
-    {
-        SceneManager.LoadScene("Scenes/Credits");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
