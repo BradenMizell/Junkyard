@@ -8,9 +8,10 @@ using UnityEngine;
     //* 2 empty objects as waypoints
     //* must have obj in scene tagged as Player
 
-enum State{ Idle, Chase};
 public class EnemyMoveChase : MonoBehaviour
 {
+    enum State { Idle, Chase };
+
     State state;
     GameObject player;
     public List<Transform> waypoints;
