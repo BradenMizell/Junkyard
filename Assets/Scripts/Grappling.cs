@@ -14,6 +14,8 @@ public class Grappling : MonoBehaviour
     public LayerMask whatIsGrappleable;
     public LineRenderer lr;
 
+    public GameObject claw;
+
     [Header("Grappling")]
     public float maxGrappleDistance;
     public float grappleDelayTime;
@@ -70,7 +72,11 @@ public class Grappling : MonoBehaviour
     private void LateUpdate()
     {
          if (grappling)
+         {
             lr.SetPosition(0, gunTip.position);
+            claw.transform.position = gunTip.position;
+         }
+            
     }
 
     private void StartGrapple()
