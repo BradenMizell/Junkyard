@@ -85,6 +85,7 @@ public class EnemyMoveWall : MonoBehaviour
         else
         {
             counter = 0;
+            state = State.Idle;
         }
     }
 }
