@@ -82,8 +82,8 @@ public class EnemyMoveWall : MonoBehaviour
         {
             SetPt();
         }
-        transform.position = Vector3.MoveTowards(transform.position, targetPt, moveSpd * Time.deltaTime);
-        transform.LookAt(targetPt);
+        //transform.position = Vector3.MoveTowards(transform.position, targetPt, moveSpd * Time.deltaTime);
+        //transform.LookAt(targetPt);
     }
 
     void AttackPlayer()
