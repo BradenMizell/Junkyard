@@ -35,10 +35,11 @@ public class EnemyMoveWall : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         lr = GetComponent<LineRenderer>();
 
-        aimColor = new Color(0, 0, 0);
-        shootColor = new Color(0, 0, 0);
+        aimColor = new Color(255, 255, 255);
+        shootColor = new Color(255, 0, 0);
 
         lr.enabled = false;
+        lr.SetPosition(0, transform.position);
     }
 
     void SetPt()
@@ -90,6 +91,7 @@ public class EnemyMoveWall : MonoBehaviour
         //shoot player; line renderer lazer? change color dep on whether it's prepping or shooting
         lr.enabled = true;
         lr.SetColors(aimColor, aimColor);
+        lr.SetPosition(0, transform.position);
         Vector3 aimPt = player.transform.position;
         if (aimCt < aimLen)
         {
