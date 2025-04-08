@@ -8,8 +8,12 @@ using UnityEngine;
 
 public class EnemyMoveWall : MonoBehaviour
 {
+    enum State{Idle, Attack};
+    State state;
     public List<Transform> waypoints;
+    GameObject player;
 
+    [SerializeField] float detectDist = 10f;
     [SerializeField] float moveSpd = 2f;
     float contactDist = 0.2f;
     Vector3 targetPt;
@@ -18,6 +22,8 @@ public class EnemyMoveWall : MonoBehaviour
     private void Start()
     {
         SetPt();
+        state = State.Idle;
+        player = GameObject.FindWithTag("Player");
     }
 
     void SetPt()
@@ -26,11 +32,30 @@ public class EnemyMoveWall : MonoBehaviour
         currPt = (currPt == 0) ? 1 : 0;
     }
 
+    void EnemyState()
+    {
+        switch (state)
+        {
+            case State.Attack:
+                AttackPlayer();
+                break;
+            default:
+                IdleMove();
+                break;
+        }
+    }
+
     private void Update()
     {
-        IdleMove();
-        transform.position = Vector3.MoveTowards(transform.position, targetPt, moveSpd * Time.deltaTime);
-        transform.LookAt(targetPt);
+        EnemyState();
+        if (Vector3.Distance(transform.position, player.transform.position) < detectDist)
+        {
+            state = State.Attack;
+        }
+        else
+        {
+            state = State.Idle;
+        }
     }
 
     void IdleMove()  //detatch children (if going with option 1)
@@ -39,5 +64,12 @@ public class EnemyMoveWall : MonoBehaviour
         {
             SetPt();
         }
+        transform.position = Vector3.MoveTowards(transform.position, targetPt, moveSpd * Time.deltaTime);
+        transform.LookAt(targetPt);
+    }
+
+    void AttackPlayer()
+    {
+        //shoot player
     }
 }
