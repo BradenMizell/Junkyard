@@ -326,7 +326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: da88097cca4413d4aaf6071e0fe0114f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.55
+      value: -2.77
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: da88097cca4413d4aaf6071e0fe0114f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -334,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: da88097cca4413d4aaf6071e0fe0114f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.55
+      value: 12.47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: da88097cca4413d4aaf6071e0fe0114f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -443,7 +443,7 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 10}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
@@ -452,8 +452,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.03883362
+        value: 0.14457893
         inSlope: 0
         outSlope: 0
         tangentMode: 0
