@@ -29,6 +29,7 @@ public class EnemyMoveWall : MonoBehaviour
 
     private void Start()
     {
+        transform.DetachChildren();
         SetPt();
         state = State.Idle;
         player = GameObject.FindWithTag("Player");

@@ -25,6 +25,7 @@ public class EnemyMoveChase : MonoBehaviour
 
     private void Start()
     {
+        transform.DetachChildren();
         state = State.Idle;
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody>();
