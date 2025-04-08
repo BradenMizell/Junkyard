@@ -12,6 +12,7 @@ public class EnemyMoveWall : MonoBehaviour
     State state;
     public List<Transform> waypoints;
     GameObject player;
+    LineRenderer lr;
 
     [SerializeField] float detectDist = 10f;
     [SerializeField] float moveSpd = 2f;
@@ -19,11 +20,24 @@ public class EnemyMoveWall : MonoBehaviour
     Vector3 targetPt;
     int currPt = 0;
 
+    int aimCt = 0;
+    int shootCt = 0;
+    int aimLen = 40;
+    int shootLen = 10;
+    Color aimColor;
+    Color shootColor;
+
     private void Start()
     {
         SetPt();
         state = State.Idle;
         player = GameObject.FindWithTag("Player");
+        lr = GetComponent<LineRenderer>();
+
+        aimColor = new Color(0, 0, 0);
+        shootColor = new Color(0, 0, 0);
+
+        lr.enabled = false;
     }
 
     void SetPt()
@@ -40,6 +54,8 @@ public class EnemyMoveWall : MonoBehaviour
                 AttackPlayer();
                 break;
             default:
+                aimCt = 0;
+                shootCt = 0;
                 IdleMove();
                 break;
         }
@@ -70,6 +86,36 @@ public class EnemyMoveWall : MonoBehaviour
 
     void AttackPlayer()
     {
-        //shoot player
+        //shoot player; line renderer lazer? change color dep on whether it's prepping or shooting
+        lr.enabled = true;
+        lr.SetColors(aimColor, aimColor);
+        Vector3 aimPt = player.transform.position;
+        if (aimCt < aimLen)
+        {
+            aimPt = player.transform.position;
+            lr.SetPosition(1, aimPt);
+            aimCt++;
+        }
+        else
+        {
+            if (shootCt < shootLen) //idea is that it freezes after aiming; if it happens to hit player, causes damage
+            {
+                lr.SetColors(shootColor, shootColor);
+                RaycastHit hit;
+                var ray = new Ray(transform.position, aimPt);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.collider.gameObject.tag.Equals("Player"))
+                    {
+                        //deal damage to player
+                    }
+                }
+                shootCt++;
+            }
+            else
+            {
+                state = State.Idle;
+            }
+        }
     }
 }
