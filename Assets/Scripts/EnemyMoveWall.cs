@@ -25,8 +25,6 @@ public class EnemyMoveWall : MonoBehaviour
     float aimLen = 1;
     float shootLen = 0.5f;
     Vector3 aimPt;
-    //Color aimColor;
-    //Color shootColor;
 
     private void Start()
     {
@@ -38,9 +36,6 @@ public class EnemyMoveWall : MonoBehaviour
         state = State.Idle;
         player = GameObject.FindWithTag("Player");
         lr = GetComponent<LineRenderer>();
-
-        //aimColor = new Color(255, 255, 255);
-        //shootColor = new Color(255, 0, 0);
 
         lr.enabled = false;
         lr.SetPosition(0, transform.position);
@@ -98,30 +93,18 @@ public class EnemyMoveWall : MonoBehaviour
         //shoot player; line renderer lazer? change color dep on whether it's prepping or shooting
         lr.enabled = true;
         lr.SetPosition(0, transform.position);
-        //Gradient grad = new Gradient();
-        //float alpha = 1f;
 
         if (aimCt < aimLen)
         {
+            lr.material.SetColor("white", Color.white);
+
             shootCt = 0f;
-            //grad.SetKeys(
-            //    new GradientColorKey[] { new GradientColorKey(Color.white, 0.0f), new GradientColorKey(Color.white, 1.0f) },
-            //    new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0f), new GradientAlphaKey(alpha, 1.0f) }
-            //);
             aimPt = player.transform.position;
             lr.SetPosition(1, aimPt);
             aimCt += 1 * Time.deltaTime;
-
-            lr.material.SetColor("white", Color.white);
-
-            //lr.colorGradient = grad;
         }
         else if (shootCt < shootLen){
-            Debug.Log("running");
-            //grad.SetKeys(
-            //    new GradientColorKey[] { new GradientColorKey(Color.red, 0.0f), new GradientColorKey(Color.red, 1.0f) },
-            //    new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0f), new GradientAlphaKey(alpha, 1.0f) }
-            //);
+            lr.material.SetColor("red", Color.red);
             RaycastHit hit;
             var ray = new Ray(transform.position, aimPt);
             if (Physics.Raycast(ray, out hit))
@@ -132,18 +115,12 @@ public class EnemyMoveWall : MonoBehaviour
                 }
             }
             shootCt += 1 * Time.deltaTime;
-
-            lr.material.SetColor("red", Color.red);
-
-            //lr.colorGradient = grad;
         }
         else
         {
+            Debug.Log("running");
+
             aimCt = 0f;
         }
-        //else
-        //{
-        //    state = State.Idle;
-        //}
     }
 }
