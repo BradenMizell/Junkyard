@@ -14,56 +14,42 @@ public class ShowCaseCam : MonoBehaviour
 
     private void Move()
     {
-        float hor = 0f;
-        float forw = 0f;
-        float ver = 0f;
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.D))
         {
-            Debug.Log("running");
-            hor = spd;
+            transform.Translate(transform.right * spd * Time.deltaTime, Space.World);
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.A))
         {
-            hor = -spd;
+            transform.Translate(transform.right * -spd * Time.deltaTime, Space.World);
         }
         if (Input.GetKey(KeyCode.W))
         {
-            forw = spd;
+            transform.Translate(transform.forward * spd * Time.deltaTime, Space.World);
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.S))
         {
-            forw = -spd;
+            transform.Translate(transform.forward * -spd * Time.deltaTime, Space.World);
         }
         if (Input.GetKey(KeyCode.I))
         {
-            ver = spd;
+            transform.Translate(transform.up * spd * Time.deltaTime, Space.World);
         }
-        else if (Input.GetKey(KeyCode.K))
+        else if (Input.GetKey(KeyCode.J))
         {
-            ver = -spd;
+            transform.Translate(transform.up * -spd * Time.deltaTime, Space.World);
         }
-        transform.right += new Vector3(hor, 0f, 0f);
-        transform.forward += new Vector3(0f, 0f, forw);
-        transform.right += new Vector3(0f, ver, 0f);
+        
     }
 
     void Turn()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.Q))
         {
-            transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * spd, Space.World);
+            transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * spd * 5, Space.World);
         }
-        else if (Input.GetKey(KeyCode.Q))
+        else if (Input.GetKey(KeyCode.E))
         {
-            transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * spd, Space.World);
-        }
-        if (Input.GetKey(KeyCode.U))
-        {
-            transform.Rotate(new Vector3(1, 0, 0) * Time.deltaTime * spd, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.J))
-        {
-            transform.Rotate(new Vector3(-1, 0, 0) * Time.deltaTime * spd, Space.World);
+            transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * spd * 5, Space.World);
         }
     }
 }
