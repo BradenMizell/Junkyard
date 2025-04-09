@@ -67,7 +67,6 @@ public class EnemyMoveChase : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, targetPt, moveSpd * Time.deltaTime);
         transform.LookAt(targetPt);
-        Debug.Log(currPt);
     }
 
     void ChasePlayer()  //reattach children (if going with option 1)

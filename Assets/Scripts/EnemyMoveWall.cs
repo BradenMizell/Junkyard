@@ -20,12 +20,13 @@ public class EnemyMoveWall : MonoBehaviour
     Vector3 targetPt;
     int currPt = 0;
 
-    int aimCt = 0;
-    int shootCt = 0;
-    int aimLen = 40;
-    int shootLen = 10;
-    Color aimColor;
-    Color shootColor;
+    float aimCt = 0;
+    float shootCt = 0;
+    float aimLen = 1;
+    float shootLen = 0.5f;
+    Vector3 aimPt;
+    //Color aimColor;
+    //Color shootColor;
 
     private void Start()
     {
@@ -38,11 +39,13 @@ public class EnemyMoveWall : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         lr = GetComponent<LineRenderer>();
 
-        aimColor = new Color(255, 255, 255);
-        shootColor = new Color(255, 0, 0);
+        //aimColor = new Color(255, 255, 255);
+        //shootColor = new Color(255, 0, 0);
 
         lr.enabled = false;
         lr.SetPosition(0, transform.position);
+
+        aimPt = player.transform.position;
     }
 
     void SetPt()
@@ -94,20 +97,24 @@ public class EnemyMoveWall : MonoBehaviour
     {
         //shoot player; line renderer lazer? change color dep on whether it's prepping or shooting
         lr.enabled = true;
-        lr.SetColors(aimColor, aimColor);
         lr.SetPosition(0, transform.position);
-        Vector3 aimPt = player.transform.position;
+
         if (aimCt < aimLen)
         {
+            Debug.Log(aimCt);
+            lr.startColor = Color.white;
+            lr.endColor = Color.white;
             aimPt = player.transform.position;
             lr.SetPosition(1, aimPt);
-            aimCt++;
+            aimCt += 1 * Time.deltaTime;
         }
         else
         {
             if (shootCt < shootLen) //idea is that it freezes after aiming; if it happens to hit player, causes damage
             {
-                lr.SetColors(shootColor, shootColor);
+                Debug.Log("running");
+                lr.startColor = Color.red;
+                lr.endColor = Color.red;
                 RaycastHit hit;
                 var ray = new Ray(transform.position, aimPt);
                 if (Physics.Raycast(ray, out hit))
@@ -117,7 +124,7 @@ public class EnemyMoveWall : MonoBehaviour
                         //deal damage to player
                     }
                 }
-                shootCt++;
+                shootCt += 1 * Time.deltaTime;
             }
             else
             {
