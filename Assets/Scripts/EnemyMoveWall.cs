@@ -29,7 +29,10 @@ public class EnemyMoveWall : MonoBehaviour
 
     private void Start()
     {
-        transform.DetachChildren();
+        foreach (Transform pt in waypoints)
+        {
+            pt.parent = null;
+        }
         SetPt();
         state = State.Idle;
         player = GameObject.FindWithTag("Player");
@@ -56,8 +59,6 @@ public class EnemyMoveWall : MonoBehaviour
                 AttackPlayer();
                 break;
             default:
-                aimCt = 0;
-                shootCt = 0;
                 IdleMove();
                 break;
         }
@@ -78,12 +79,15 @@ public class EnemyMoveWall : MonoBehaviour
 
     void IdleMove()  //detatch children (if going with option 1)
     {
+        aimCt = 0;
+        shootCt = 0;
+        lr.enabled = false;
         if (Vector3.Distance(transform.position, targetPt) < contactDist) //might need to add collision detection in case it runs into a wall
         {
             SetPt();
         }
-        //transform.position = Vector3.MoveTowards(transform.position, targetPt, moveSpd * Time.deltaTime);
-        //transform.LookAt(targetPt);
+        transform.position = Vector3.MoveTowards(transform.position, targetPt, moveSpd * Time.deltaTime);
+        transform.LookAt(targetPt);
     }
 
     void AttackPlayer()
