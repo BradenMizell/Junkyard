@@ -62,6 +62,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (forward)
             {
+                //make it turn around smoother
                 transform.LookAt(points[2].position);
                 transform.position = GetCurve(points[0].position, points[1].position, points[2].position, timeCt);
             }

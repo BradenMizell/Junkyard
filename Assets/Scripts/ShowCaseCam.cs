@@ -16,19 +16,19 @@ public class ShowCaseCam : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(transform.right * spd * Time.deltaTime, Space.World);
+            transform.Translate(transform.forward * -spd * Time.deltaTime, Space.World);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(transform.right * -spd * Time.deltaTime, Space.World);
+            transform.Translate(transform.forward * spd * Time.deltaTime, Space.World);
         }
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(transform.forward * spd * Time.deltaTime, Space.World);
+            transform.Translate(transform.right * spd * Time.deltaTime, Space.World);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(transform.forward * -spd * Time.deltaTime, Space.World);
+            transform.Translate(transform.right * -spd * Time.deltaTime, Space.World);
         }
         if (Input.GetKey(KeyCode.I))
         {

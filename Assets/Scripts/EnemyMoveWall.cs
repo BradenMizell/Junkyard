@@ -109,8 +109,9 @@ public class EnemyMoveWall : MonoBehaviour
             lr.material.SetColor("_Color", Color.white);
 
             //having trouble getting it to read player object
-            var ray = new Ray(transform.position, -aimPt);
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, lm))
+            var ray = new Ray(transform.position, aimPt);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, lm))
             {
                 Debug.Log(hit.transform.gameObject.name);
                 if (hit.transform.gameObject == player)
