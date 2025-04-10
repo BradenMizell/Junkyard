@@ -11,7 +11,7 @@ public class EnemyMoveWall : MonoBehaviour
     enum State{Idle, Attack};
     State state;
     public List<Transform> waypoints;
-    GameObject player;
+    [SerializeField] GameObject player;
     LineRenderer lr;
 
     [SerializeField] float detectDist = 10f;
@@ -25,6 +25,7 @@ public class EnemyMoveWall : MonoBehaviour
     float aimLen = 1;
     float shootLen = 0.5f;
     Vector3 aimPt;
+    [SerializeField] LayerMask lm;
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class EnemyMoveWall : MonoBehaviour
         lr.SetPosition(0, transform.position);
 
         aimPt = player.transform.position;
+        //lm = LayerMask.GetMask("PlayerRead");
     }
 
     void SetPt()
@@ -96,7 +98,7 @@ public class EnemyMoveWall : MonoBehaviour
 
         if (aimCt < aimLen)
         {
-            lr.material.SetColor("white", Color.white);
+            lr.material.SetColor("_Color", Color.red);
 
             shootCt = 0f;
             aimPt = player.transform.position;
@@ -104,13 +106,16 @@ public class EnemyMoveWall : MonoBehaviour
             aimCt += 1 * Time.deltaTime;
         }
         else if (shootCt < shootLen){
-            lr.material.SetColor("red", Color.red);
-            RaycastHit hit;
+            lr.material.SetColor("_Color", Color.white);
+
+            //having trouble getting it to read player object
             var ray = new Ray(transform.position, aimPt);
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, lm))
             {
-                if (hit.collider.gameObject.tag.Equals("Player"))
+                Debug.Log(hit.transform.gameObject.name);
+                if (hit.transform.gameObject == player)
                 {
+                    Debug.Log("hit!");
                     //deal damage to player
                 }
             }
@@ -118,8 +123,6 @@ public class EnemyMoveWall : MonoBehaviour
         }
         else
         {
-            Debug.Log("running");
-
             aimCt = 0f;
         }
     }
