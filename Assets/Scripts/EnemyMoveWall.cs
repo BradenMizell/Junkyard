@@ -98,7 +98,7 @@ public class EnemyMoveWall : MonoBehaviour
 
         if (aimCt < aimLen)
         {
-            lr.material.SetColor("_Color", Color.red);
+            lr.material.SetColor("_Color", Color.white);
 
             shootCt = 0f;
             aimPt = player.transform.position;
@@ -106,7 +106,7 @@ public class EnemyMoveWall : MonoBehaviour
             aimCt += 1 * Time.deltaTime;
         }
         else if (shootCt < shootLen){
-            lr.material.SetColor("_Color", Color.white);
+            lr.material.SetColor("_Color", Color.red);
 
             //having trouble getting it to read player object
             var ray = new Ray(transform.position, aimPt);
