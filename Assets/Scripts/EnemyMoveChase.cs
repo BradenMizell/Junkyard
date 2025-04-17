@@ -8,9 +8,10 @@ using UnityEngine;
     //* 2 empty objects as waypoints
     //* must have obj in scene tagged as Player
 
-enum State{ Idle, Chase};
+
 public class EnemyMoveChase : MonoBehaviour
 {
+    enum State { Idle, Chase };
     State state;
     GameObject player;
     public List<Transform> waypoints;
@@ -24,6 +25,10 @@ public class EnemyMoveChase : MonoBehaviour
 
     private void Start()
     {
+        foreach (Transform pt in waypoints)
+        {
+            pt.parent = null;
+        }
         state = State.Idle;
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody>();
@@ -62,7 +67,6 @@ public class EnemyMoveChase : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, targetPt, moveSpd * Time.deltaTime);
         transform.LookAt(targetPt);
-        Debug.Log(currPt);
     }
 
     void ChasePlayer()  //reattach children (if going with option 1)
