@@ -2015,6 +2015,10 @@ MonoBehaviour:
   - m_Vertices: 12000000
   - m_Vertices: 13000000
   - m_Vertices: 14000000
+  - m_Vertices: 15000000
+  - m_Vertices: 16000000
+  - m_Vertices: 17000000
+  - m_Vertices: 18000000
   m_SharedTextures:
   - m_Vertices: 08000000
   - m_Vertices: 09000000
@@ -2029,6 +2033,10 @@ MonoBehaviour:
   - m_Vertices: 12000000
   - m_Vertices: 13000000
   - m_Vertices: 14000000
+  - m_Vertices: 15000000
+  - m_Vertices: 16000000
+  - m_Vertices: 17000000
+  - m_Vertices: 18000000
   m_Positions:
   - {x: -12.357536, y: 0.31324673, z: -896.73706}
   - {x: -93.974144, y: 0.015181065, z: -827.1443}
@@ -2051,6 +2059,10 @@ MonoBehaviour:
   - {x: -44.96111, y: 0.5142698, z: -869.90485}
   - {x: -69.34469, y: 0.29190826, z: -848.6643}
   - {x: -64.49448, y: 12.189426, z: -852.26575}
+  - {x: -69.384476, y: 0.24839878, z: -848.6319}
+  - {x: -64.60064, y: 12.649811, z: -852.149}
+  - {x: -45.179707, y: 12.480781, z: -869.28436}
+  - {x: -41.95907, y: 0.3307686, z: -872.531}
   m_Textures0:
   - {x: 49.726196, y: -2.8934784}
   - {x: -74.190674, y: -3.196084}
@@ -2060,6 +2072,10 @@ MonoBehaviour:
   - {x: 56.47235, y: -3.2124557}
   - {x: -72.8689, y: 16.791975}
   - {x: 56.47235, y: 16.787325}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
@@ -2097,6 +2113,10 @@ MonoBehaviour:
   - {x: 0, y: 1, z: 0, w: 1}
   - {x: 0, y: 1, z: 0, w: 1}
   - {x: 0, y: 1, z: 0, w: 1}
+  - {x: 0, y: 1, z: 0, w: 1}
+  - {x: 0, y: 1, z: 0, w: 1}
+  - {x: 0, y: 1, z: 0, w: 1}
+  - {x: 0, y: 1, z: 0, w: 1}
   m_Colors: []
   m_UnwrapParameters:
     m_HardAngle: 88
@@ -2106,7 +2126,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1484677338}
-  m_VersionIndex: 2615
+  m_VersionIndex: 2618
   m_IsSelectable: 1
   m_SelectedFaces: 00000000
   m_SelectedEdges:
