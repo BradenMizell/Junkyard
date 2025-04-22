@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShowCaseCam : MonoBehaviour
 {
 
-    float spd = 10f;
+    [SerializeField] float spd = 10f;
     private void Update()
     {
         Move();
