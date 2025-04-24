@@ -11,6 +11,6 @@ public class exitLevel : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        SceneManager.LoadScene("MainMenu");
+        LevelControlle.UpdateScene();
     }
 }
