@@ -10,8 +10,9 @@ public class LevelController : MonoBehaviour
 
     public static void UpdateScene()
     {
-        if (sceneNum < SceneManager.sceneCount)
+        if (sceneNum < SceneManager.sceneCountInBuildSettings)
         {
+            Debug.Log(sceneNum);
             SceneManager.LoadScene(SceneManager.GetSceneAt(sceneNum).ToString());
             sceneNum++;
         }
