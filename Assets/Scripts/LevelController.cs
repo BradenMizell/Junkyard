@@ -6,20 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
-    public static int sceneNum = 1;
+    public static int sceneNum = 0;
 
     public static void UpdateScene()
     {
+        sceneNum = SceneManager.GetActiveScene().buildIndex;
         if (sceneNum < SceneManager.sceneCountInBuildSettings)
         {
-            Debug.Log(sceneNum);
-            SceneManager.LoadScene(SceneManager.GetSceneAt(sceneNum).ToString());
-            sceneNum++;
+            Debug.Log(sceneNum + 1);
+            SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(sceneNum).ToString());
         }
         else
         {
             SceneManager.LoadScene("MainMenu");
-            sceneNum = 1;
+            sceneNum = 0;
         }
     }
 }
