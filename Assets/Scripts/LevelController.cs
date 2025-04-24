@@ -4,25 +4,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelControlle : MonoBehaviour
+public class LevelController : MonoBehaviour
 {
-    public static List<Scene> scenes;
     public static int sceneNum = 0;
-
-    private void Start()
-    {
-        Debug.Log("hi!");
-        for (int i = 0; i < SceneManager.sceneCount; i++)
-        {
-            scenes.Add(SceneManager.GetSceneAt(i));
-        }
-    }
 
     public static void UpdateScene()
     {
-        if (sceneNum < scenes.Count)
+        if (sceneNum < SceneManager.sceneCount)
         {
-            SceneManager.LoadScene(scenes[sceneNum].ToString());
+            SceneManager.LoadScene(SceneManager.GetSceneAt(sceneNum).ToString());
             sceneNum++;
         }
         else

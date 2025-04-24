@@ -8,9 +8,10 @@ public class exitLevel : MonoBehaviour
 {
     void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("running");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        LevelControlle.UpdateScene();
+        LevelController.UpdateScene();
     }
 }
