@@ -57,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
     public bool activeGrapple;
     public bool swinging;
 
+    int hp = 10;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -235,7 +237,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
+    private void LowerHealth()
+    {
+        hp -=1;
+    }
+
+
 
     public Vector3 CalculateJumpVelocity(Vector3 startPoint, Vector3 endPoint, float trajectoryHeight)
     {
