@@ -384,7 +384,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!95 &7691548684302139201
 Animator:
@@ -421,7 +421,6 @@ MonoBehaviour:
   waypoints:
   - {fileID: 7691548684460302834}
   - {fileID: 7691548683866158956}
-  player: {fileID: 0}
   detectDist: 10
   moveSpd: 2
   lm:

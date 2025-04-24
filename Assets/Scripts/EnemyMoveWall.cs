@@ -11,7 +11,7 @@ public class EnemyMoveWall : MonoBehaviour
     enum State{Idle, Attack};
     State state;
     public List<Transform> waypoints;
-    [SerializeField] GameObject player;
+    GameObject player;
     LineRenderer lr;
 
     [SerializeField] float detectDist = 10f;
