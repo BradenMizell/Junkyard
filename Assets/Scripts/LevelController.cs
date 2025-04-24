@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
-    public static int sceneNum = 0;
+    public static int sceneNum = 1;
 
     public static void UpdateScene()
     {
@@ -18,7 +18,7 @@ public class LevelController : MonoBehaviour
         else
         {
             SceneManager.LoadScene("MainMenu");
-            sceneNum = 0;
+            sceneNum = 1;
         }
     }
 }
