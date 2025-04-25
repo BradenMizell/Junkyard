@@ -98,6 +98,10 @@ public class EnemyMoveChase : MonoBehaviour
         {
             dies = col.gameObject.GetComponent<PlayerMovement>().GotHit();
         }
+        if (dies)
+        {
+            GetComponent<AudioSource>().Play();
+        }
         gameObject.SetActive(!dies);
     }
 }
