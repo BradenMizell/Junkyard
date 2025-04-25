@@ -277,14 +277,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveSpeed < goodSpd && hitCooldownTimer == 0)
         {
+            Debug.Log("running");
             isHit = true;
             healTimer = 0;
             hp -= 1;
-            return false;
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
     }
 
