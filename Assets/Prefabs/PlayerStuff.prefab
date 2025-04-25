@@ -101,6 +101,7 @@ MonoBehaviour:
   freeze: 0
   activeGrapple: 0
   swinging: 0
+  hurtOverlay: {fileID: 8177817114137094114}
   text_speed: {fileID: 8177817113217731212}
 --- !u!114 &2288888884651102599
 MonoBehaviour:
@@ -1468,6 +1469,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1278e10370f064c49a115926c0907d44, type: 3}
+--- !u!114 &8177817114137094114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 441319188738101815, guid: 1278e10370f064c49a115926c0907d44, type: 3}
+  m_PrefabInstance: {fileID: 8602596707945690581}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8177817114137094115 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 441319188738101814, guid: 1278e10370f064c49a115926c0907d44, type: 3}
