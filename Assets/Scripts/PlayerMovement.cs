@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UIElements;
+//using UnityEngine.UIElements;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -60,13 +62,13 @@ public class PlayerMovement : MonoBehaviour
 
 
     //health things
-    int hp = 10;
+    int hp = 5;
     float goodSpd = 10f;
     int hitCooldownTimer = 0;
     int healTimer;
     int timerMax = 100;
     bool isHit = false;
-    public Image hurtOverlay;
+    public Graphic hurtOverlay;
 
     private void Start()
     {
@@ -113,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
             }
             
         }
-        else if (hp < 10)
+        else if (hp < 5)
         {
             if (healTimer < timerMax * 3) //healing takes longer than iframes
             {
@@ -122,9 +124,16 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 hp++;
-                hurtOverlay.tintColor = new Color(0f, 0f, 0f, (10 - hp) / 10);
                 healTimer = 0;
             }
+        }
+        float alpha = (5f - hp) * 0.2f;
+        hurtOverlay.color = new Color(1f, 1f, 1f, alpha);
+
+
+        if (hp <= 0)
+        {
+            GameOver();
         }
     }
 
@@ -275,26 +284,28 @@ public class PlayerMovement : MonoBehaviour
 
     public bool GotHit() //called by sendMessage in enemy scripts; returns bool that det if enemy dies
     {
-        if (moveSpeed < goodSpd) //also stopped reading?
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        if (Round(flatVel.magnitude, 1) < goodSpd)
         {
-            Debug.Log("isHit");
-            if (!isHit) //not reading at all
+            if (!isHit)
             {
-                Debug.Log("running");
                 hitCooldownTimer = 0;
                 healTimer = 0;
                 hp -= 1;
                 isHit = true;
             }
-            return true;
+            return false;
         }
         else
         {
-            return false;
+            return true;
         }
     }
 
-
+    void GameOver()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
     public Vector3 CalculateJumpVelocity(Vector3 startPoint, Vector3 endPoint, float trajectoryHeight)
     {
