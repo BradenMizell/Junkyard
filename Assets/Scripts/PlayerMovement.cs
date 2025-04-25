@@ -277,7 +277,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveSpeed < goodSpd && hitCooldownTimer == 0)
         {
-            hitCooldownTimer = 0;
+            isHit = true;
             healTimer = 0;
             hp -= 1;
             return false;
