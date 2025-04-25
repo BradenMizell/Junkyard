@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     public Transform[] points;
     Vector3 a, b;
 
-    [SerializeField] float moveSpd = 0.3f;
+    [SerializeField] float moveSpd = 0.1f;
     float timeCt = 0f;
 
     bool forward = true;

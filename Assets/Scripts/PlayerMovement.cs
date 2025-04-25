@@ -275,9 +275,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool GotHit() //called by sendMessage in enemy scripts; returns bool that det if enemy dies
     {
-        if (moveSpeed < goodSpd)
+        if (moveSpeed < goodSpd) //also stopped reading?
         {
-            if (!isHit)
+            Debug.Log("isHit");
+            if (!isHit) //not reading at all
             {
                 Debug.Log("running");
                 hitCooldownTimer = 0;
