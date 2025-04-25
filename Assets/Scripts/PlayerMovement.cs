@@ -5,6 +5,7 @@ using TMPro;
 //using UnityEngine.UIElements;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -70,12 +71,17 @@ public class PlayerMovement : MonoBehaviour
     bool isHit = false;
     public Graphic hurtOverlay;
 
+    public AudioClip enemyDieAudio;
+    AudioSource src;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
         readyToJump = true;
+
+        src = GetComponent<AudioSource>();
 
     }
 
@@ -292,13 +298,15 @@ public class PlayerMovement : MonoBehaviour
                 hitCooldownTimer = 0;
                 healTimer = 0;
                 hp -= 1;
+                GetComponent<AudioSource>().Play(); //hit sfx
                 isHit = true;
             }
-            GetComponent<AudioSource>().Play(); //hit sfx
             return false;
         }
         else
         {
+            src.clip = enemyDieAudio;
+            src.Play();
             return true;
         }
     }

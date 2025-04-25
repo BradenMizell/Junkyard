@@ -97,10 +97,10 @@ public class EnemyMoveChase : MonoBehaviour
         if (col.gameObject.tag.Equals("PlayerObj"))
         {
             dies = col.gameObject.GetComponent<PlayerMovement>().GotHit();
-        }
-        if (dies)
-        {
-            GetComponent<AudioSource>().Play();
+            //if (dies)
+            //{
+            //    GetComponent<AudioSource>().Play();
+            //}
         }
         gameObject.SetActive(!dies);
     }
