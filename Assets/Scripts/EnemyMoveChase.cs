@@ -30,7 +30,7 @@ public class EnemyMoveChase : MonoBehaviour
             pt.parent = null;
         }
         state = State.Idle;
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("PlayerObj");
         rb = GetComponent<Rigidbody>();
         SetPt();
     }

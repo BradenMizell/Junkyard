@@ -114,7 +114,7 @@ public class EnemyMoveWall : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, lm))
             {
                 Debug.Log(hit.transform.gameObject.name);
-                if (hit.transform.gameObject == player)
+                if (hit.transform.gameObject.tag.Equals("Player"))
                 {
                     Debug.Log("hit!");
                     GameObject.FindGameObjectWithTag("PlayerObj").GetComponent<PlayerMovement>().GotHit(true);
