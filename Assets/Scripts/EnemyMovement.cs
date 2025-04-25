@@ -85,11 +85,7 @@ public class EnemyMovement : MonoBehaviour
         bool dies = false;
         if (col.gameObject.tag.Equals("PlayerObj"))
         {
-            dies = col.gameObject.GetComponent<PlayerMovement>().GotHit();
-            //if (dies)
-            //{
-            //    GetComponent<AudioSource>().Play();
-            //}
+            dies = col.gameObject.GetComponent<PlayerMovement>().GotHit(false);
         }
         gameObject.SetActive(!dies);
     }

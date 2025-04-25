@@ -288,10 +288,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public bool GotHit() //called by sendMessage in enemy scripts; returns bool that det if enemy dies
+    public bool GotHit(bool isLaser) //called by sendMessage in enemy scripts; returns bool that det if enemy dies
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-        if (Round(flatVel.magnitude, 1) < goodSpd)
+        if (Round(flatVel.magnitude, 1) < goodSpd && !isLaser)
         {
             if (!isHit)
             {
@@ -303,11 +303,20 @@ public class PlayerMovement : MonoBehaviour
             }
             return false;
         }
-        else
+        else if (!isLaser)
         {
             src.clip = enemyDieAudio;
             src.Play();
             return true;
+        }
+        else
+        {
+            hitCooldownTimer = 0;
+            healTimer = 0;
+            hp -= 1;
+            GetComponent<AudioSource>().Play(); //hit sfx
+            isHit = true;
+            return false;
         }
     }
 

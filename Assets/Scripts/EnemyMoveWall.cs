@@ -117,6 +117,7 @@ public class EnemyMoveWall : MonoBehaviour
                 if (hit.transform.gameObject == player)
                 {
                     Debug.Log("hit!");
+                    GameObject.FindGameObjectWithTag("PlayerObj").GetComponent<PlayerMovement>().GotHit(true);
                     //deal damage to player
                 }
             }
@@ -133,11 +134,7 @@ public class EnemyMoveWall : MonoBehaviour
         bool dies = false;
         if (col.gameObject.tag.Equals("PlayerObj"))
         {
-            dies = col.gameObject.GetComponent<PlayerMovement>().GotHit();
-            //if (dies)
-            //{
-            //    GetComponent<AudioSource>().Play();
-            //}
+            dies = col.gameObject.GetComponent<PlayerMovement>().GotHit(false);
         }
         gameObject.SetActive(!dies);
     }
