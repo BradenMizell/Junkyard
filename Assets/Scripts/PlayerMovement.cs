@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
     //health things
     int hp = 10;
+    float goodSpd = 10f;
     float overlayAlpha = 0f;
     int hitCooldownTimer = 0;
     int healTimer;
@@ -274,8 +275,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool GotHit() //called by sendMessage in enemy scripts; returns bool that det if enemy dies
     {
-        Debug.Log("running");
-        if (moveSpeed < 3f && hitCooldownTimer == 0)
+        if (moveSpeed < goodSpd && hitCooldownTimer == 0)
         {
             hitCooldownTimer = 0;
             healTimer = 0;

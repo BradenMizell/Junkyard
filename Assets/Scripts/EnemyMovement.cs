@@ -80,8 +80,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
         bool dies = false;
         if (col.gameObject.tag.Equals("PlayerObj"))
