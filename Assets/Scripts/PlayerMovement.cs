@@ -294,6 +294,7 @@ public class PlayerMovement : MonoBehaviour
                 hp -= 1;
                 isHit = true;
             }
+            GetComponent<AudioSource>().Play(); //hit sfx
             return false;
         }
         else
