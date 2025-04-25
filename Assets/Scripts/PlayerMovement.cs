@@ -62,10 +62,9 @@ public class PlayerMovement : MonoBehaviour
     //health things
     int hp = 10;
     float goodSpd = 10f;
-    float overlayAlpha = 0f;
     int hitCooldownTimer = 0;
     int healTimer;
-    int timerMax = 30;
+    int timerMax = 100;
     bool isHit = false;
     public Image hurtOverlay;
 
@@ -101,18 +100,20 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayer();
 
-        if (isHit && hitCooldownTimer < timerMax)
+        if (isHit)
         {
-            hitCooldownTimer++;
+            if (hitCooldownTimer < timerMax)
+            {
+                hitCooldownTimer++;
+            }
+            else
+            {
+                hitCooldownTimer = 0;
+                isHit = false;
+            }
+            
         }
-        else
-        {
-            hitCooldownTimer = 0;
-            isHit = false;
-        }
-
-
-        if (!isHit && hp < 10)
+        else if (hp < 10)
         {
             if (healTimer < timerMax * 3) //healing takes longer than iframes
             {
@@ -121,8 +122,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 hp++;
-                overlayAlpha = (10 - hp) / 10;
-                hurtOverlay.tintColor = new Color(0f, 0f, 0f, overlayAlpha);
+                hurtOverlay.tintColor = new Color(0f, 0f, 0f, (10 - hp) / 10);
                 healTimer = 0;
             }
         }
@@ -275,12 +275,16 @@ public class PlayerMovement : MonoBehaviour
 
     public bool GotHit() //called by sendMessage in enemy scripts; returns bool that det if enemy dies
     {
-        if (moveSpeed < goodSpd && hitCooldownTimer == 0)
+        if (moveSpeed < goodSpd)
         {
-            Debug.Log("running");
-            isHit = true;
-            healTimer = 0;
-            hp -= 1;
+            if (!isHit)
+            {
+                Debug.Log("running");
+                hitCooldownTimer = 0;
+                healTimer = 0;
+                hp -= 1;
+                isHit = true;
+            }
             return true;
         }
         else
