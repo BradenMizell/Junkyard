@@ -2105,6 +2105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c829e324df5e6cb48b15628e20d82a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevelName: NewLevel
 --- !u!114 &123968918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8693,7 +8694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &376698710
 Transform:
   m_ObjectHideFlags: 0
@@ -28263,7 +28264,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28658
+  m_Name: pb_Mesh31308
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40372,7 +40373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1955536067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40463,6 +40464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c829e324df5e6cb48b15628e20d82a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevelName: NewLevel
 --- !u!43 &1969315075
 Mesh:
   m_ObjectHideFlags: 0
