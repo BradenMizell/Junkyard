@@ -89,4 +89,15 @@ public class EnemyMoveChase : MonoBehaviour
             SetPt();
         }
     }
+
+
+    private void OnCollisionEnter(Collision col)
+    {
+        bool dies = false;
+        if (col.gameObject.tag.Equals("PlayerObj"))
+        {
+            dies = col.gameObject.GetComponent<PlayerMovement>().GotHit();
+        }
+        gameObject.SetActive(!dies);
+    }
 }

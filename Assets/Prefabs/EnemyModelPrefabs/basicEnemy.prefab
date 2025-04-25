@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 2690492941934457730}
   - component: {fileID: 2511940339553506413}
   - component: {fileID: 2511940339553506415}
+  - component: {fileID: 3165590526639900990}
   m_Layer: 0
   m_Name: basicEnemy
   m_TagString: Untagged
@@ -527,6 +528,20 @@ MonoBehaviour:
   - {fileID: 2511940340853107358}
   - {fileID: 2511940340572023835}
   moveSpd: 0.5
+--- !u!136 &3165590526639900990
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3322915179016137016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.0632155
+  m_Height: 6.2302127
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.8894465, z: 0}
 --- !u!1 &3958337354601327579
 GameObject:
   m_ObjectHideFlags: 0

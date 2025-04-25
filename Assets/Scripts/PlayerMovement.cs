@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -57,7 +58,15 @@ public class PlayerMovement : MonoBehaviour
     public bool activeGrapple;
     public bool swinging;
 
+
+    //health things
     int hp = 10;
+    float overlayAlpha = 0f;
+    int hitCooldownTimer = 0;
+    int healTimer;
+    int timerMax = 30;
+    bool isHit = false;
+    public Image hurtOverlay;
 
     private void Start()
     {
@@ -90,6 +99,32 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+
+        if (isHit && hitCooldownTimer < timerMax)
+        {
+            hitCooldownTimer++;
+        }
+        else
+        {
+            hitCooldownTimer = 0;
+            isHit = false;
+        }
+
+
+        if (!isHit && hp < 10)
+        {
+            if (healTimer < timerMax * 3) //healing takes longer than iframes
+            {
+                healTimer++;
+            }
+            else
+            {
+                hp++;
+                overlayAlpha = (10 - hp) / 10;
+                hurtOverlay.tintColor = new Color(0f, 0f, 0f, overlayAlpha);
+                healTimer = 0;
+            }
+        }
     }
 
     private void MyInput()
@@ -237,9 +272,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void LowerHealth()
+    public bool GotHit() //called by sendMessage in enemy scripts; returns bool that det if enemy dies
     {
-        hp -=1;
+        Debug.Log("running");
+        if (moveSpeed < 3f && hitCooldownTimer == 0)
+        {
+            hitCooldownTimer = 0;
+            healTimer = 0;
+            hp -= 1;
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
 

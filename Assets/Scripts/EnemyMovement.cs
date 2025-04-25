@@ -79,4 +79,15 @@ public class EnemyMovement : MonoBehaviour
             timeCt = 0;
         }
     }
+
+
+    private void OnCollisionEnter(Collision col)
+    {
+        bool dies = false;
+        if (col.gameObject.tag.Equals("PlayerObj"))
+        {
+            dies = col.gameObject.GetComponent<PlayerMovement>().GotHit();
+        }
+        gameObject.SetActive(!dies);
+    }
 }

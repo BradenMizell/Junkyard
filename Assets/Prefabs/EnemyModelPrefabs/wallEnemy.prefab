@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 7691548684302139207}
   - component: {fileID: 7691548684302139201}
   - component: {fileID: 7691548684302139200}
+  - component: {fileID: 1100692191636723453}
   m_Layer: 0
   m_Name: wallEnemy
   m_TagString: Untagged
@@ -426,6 +427,20 @@ MonoBehaviour:
   lm:
     serializedVersion: 2
     m_Bits: 8
+--- !u!136 &1100692191636723453
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7384978799340716557}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.6813383
+  m_Height: 4.459115
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7691548683866158957
 GameObject:
   m_ObjectHideFlags: 0
