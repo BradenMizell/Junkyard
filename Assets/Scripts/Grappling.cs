@@ -59,8 +59,8 @@ public class Grappling : MonoBehaviour
             crosshairGreen.SetActive(false);
             crosshairRed.SetActive(true);
         }
-
-        if (Input.GetKeyDown(grappleKey)) StartGrapple();
+        if (!PauseMenu.isPaused)
+            if (Input.GetKeyDown(grappleKey)) StartGrapple();
 
 
         if (grapplingCdTimer > 0)

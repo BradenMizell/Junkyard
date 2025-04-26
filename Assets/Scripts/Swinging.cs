@@ -37,12 +37,15 @@ public class Swinging : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(swingKey)) StartSwing();
-        if (Input.GetKeyUp(swingKey)) StopSwing();
+        if (!PauseMenu.isPaused)
+        {
+            if (Input.GetKeyDown(swingKey)) StartSwing();
+            if (Input.GetKeyUp(swingKey)) StopSwing();
 
-        CheckForSwingPoints();
+            CheckForSwingPoints();
 
-        if (joint != null) OdmGearMovement();
+            if (joint != null) OdmGearMovement();
+        }        
     }
 
     private void LateUpdate()
