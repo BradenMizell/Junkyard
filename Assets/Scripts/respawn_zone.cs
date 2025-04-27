@@ -13,6 +13,7 @@ public class respawn_zone : MonoBehaviour
         {
             Vector3 respawnPos = new Vector3(respawn.transform.position.x, respawn.transform.position.y, respawn.transform.position.z);
             Player.transform.position = respawnPos;
+            GetComponent<AudioSource>().Play();
         }
     }
 }

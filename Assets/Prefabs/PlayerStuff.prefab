@@ -104,6 +104,7 @@ MonoBehaviour:
   swinging: 0
   hurtOverlay: {fileID: 8177817114137094114}
   enemyDieAudio: {fileID: 8300000, guid: c3f60395db45a374884c14990be7b31e, type: 3}
+  hurtAudio: {fileID: 8300000, guid: 18e319adbcc211c428cb3f132a559691, type: 3}
   text_speed: {fileID: 8177817113217731212}
 --- !u!114 &2288888884651102599
 MonoBehaviour:
