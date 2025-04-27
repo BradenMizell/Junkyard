@@ -141,9 +141,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (hp <= 0)
         {
-            StartCoroutine(GameOver());
-            src.clip = dieAudio;
-            GetComponent<AudioSource>().Play();
+            GameOver();
+            //StartCoroutine(GameOver());
         }
     }
 
@@ -302,6 +301,11 @@ public class PlayerMovement : MonoBehaviour
                 hitCooldownTimer = 0;
                 healTimer = 0;
                 hp -= 1;
+                if (hp < 0)
+                {
+                    src.clip = dieAudio;
+                    GetComponent<AudioSource>().Play();
+                }
                 src.clip = hurtAudio;
                 GetComponent<AudioSource>().Play(); //hit sfx
                 isHit = true;
@@ -330,7 +334,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator GameOver()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 
     public Vector3 CalculateJumpVelocity(Vector3 startPoint, Vector3 endPoint, float trajectoryHeight)
