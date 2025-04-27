@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioClip enemyDieAudio;
     public AudioClip hurtAudio;
+    public AudioClip dieAudio;
     AudioSource src;
 
     private void Start()
@@ -140,7 +141,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (hp <= 0)
         {
-            GameOver();
+            StartCoroutine(GameOver());
+            src.clip = dieAudio;
+            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -324,8 +327,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void GameOver()
+    IEnumerator GameOver()
     {
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("MainMenu");
     }
 
