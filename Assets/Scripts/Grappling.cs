@@ -38,6 +38,9 @@ public class Grappling : MonoBehaviour
 
     private bool grappling;
 
+
+    public AudioClip tooFar;
+
     private void Start()
     {
         pm = GetComponent<PlayerMovement>();
@@ -60,7 +63,7 @@ public class Grappling : MonoBehaviour
             crosshairRed.SetActive(true);
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
-                GetComponent<AudioSource>().clip = null;
+                GetComponent<AudioSource>().clip = tooFar;
                 GetComponent<AudioSource>().Play();
 
             }
