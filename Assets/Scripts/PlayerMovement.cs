@@ -139,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
         hurtOverlay.color = new Color(1f, 1f, 1f, alpha);
 
 
-        if (hp <= 0)
+        if (hp < 1 && !src.isPlaying)
         {
             GameOver();
             //StartCoroutine(GameOver());
@@ -301,10 +301,11 @@ public class PlayerMovement : MonoBehaviour
                 hitCooldownTimer = 0;
                 healTimer = 0;
                 hp -= 1;
-                if (hp < 0)
+                if (hp < 1)
                 {
                     src.clip = dieAudio;
                     GetComponent<AudioSource>().Play();
+                    return false;
                 }
                 src.clip = hurtAudio;
                 GetComponent<AudioSource>().Play(); //hit sfx
@@ -331,9 +332,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    IEnumerator GameOver()
+    void GameOver()
     {
-        yield return new WaitForSeconds(2);
+        //yield return new WaitForSeconds(2);
         SceneManager.LoadSceneAsync("MainMenu");
     }
 
