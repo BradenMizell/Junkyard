@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
     public Graphic hurtOverlay;
 
     public AudioClip enemyDieAudio;
+    public AudioClip hurtAudio;
     AudioSource src;
 
     private void Start()
@@ -298,6 +299,7 @@ public class PlayerMovement : MonoBehaviour
                 hitCooldownTimer = 0;
                 healTimer = 0;
                 hp -= 1;
+                src.clip = hurtAudio;
                 GetComponent<AudioSource>().Play(); //hit sfx
                 isHit = true;
             }
@@ -306,6 +308,7 @@ public class PlayerMovement : MonoBehaviour
         else if (!isLaser)
         {
             src.clip = enemyDieAudio;
+            GetComponent<AudioSource>().Play();
             src.Play();
             return true;
         }
@@ -314,6 +317,7 @@ public class PlayerMovement : MonoBehaviour
             hitCooldownTimer = 0;
             healTimer = 0;
             hp -= 1;
+            src.clip = hurtAudio;
             GetComponent<AudioSource>().Play(); //hit sfx
             isHit = true;
             return false;
