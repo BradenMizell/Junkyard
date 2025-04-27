@@ -58,6 +58,12 @@ public class Grappling : MonoBehaviour
         {
             crosshairGreen.SetActive(false);
             crosshairRed.SetActive(true);
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            {
+                GetComponent<AudioSource>().clip = null;
+                GetComponent<AudioSource>().Play();
+
+            }
         }
 
         if (Input.GetKeyDown(grappleKey)) StartGrapple();
