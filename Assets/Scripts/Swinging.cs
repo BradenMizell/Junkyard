@@ -100,11 +100,15 @@ public class Swinging : MonoBehaviour
 
     private void StartSwing()
     {
-        if (!crosshairRed.gameObject.activeInHierarchy)
+        if (!PauseMenu.isPaused)
         {
-            src.clip = swingSound;
-            src.Play();
+            if (!crosshairRed.gameObject.activeInHierarchy)
+            {
+                src.clip = swingSound;
+                src.Play();
+            }
         }
+        
 
         // return if predictionHit not found
         if (predictionHit.point == Vector3.zero) return;

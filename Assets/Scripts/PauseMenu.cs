@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject hurtOverlay;
     public Transform respawnPoint;
     public GameObject player;
     public PlayerMovement pm;
@@ -25,10 +26,12 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPaused)
             {
+                hurtOverlay.SetActive(true);
                 ResumeGame();
             }
             else
             {
+                hurtOverlay.SetActive(false);
                 PauseGame();
             }
         }

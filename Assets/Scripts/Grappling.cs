@@ -84,11 +84,15 @@ public class Grappling : MonoBehaviour
 
     private void StartGrapple()
     {
-        if (!crosshairRed.gameObject.activeInHierarchy)
+        if (!PauseMenu.isPaused)
         {
-            src.clip = grappleSound;
-            src.Play();
+            if (!crosshairRed.gameObject.activeInHierarchy)
+            {
+                src.clip = grappleSound;
+                src.Play();
+            }
         }
+        
 
         if (grapplingCdTimer > 0) return;
 
