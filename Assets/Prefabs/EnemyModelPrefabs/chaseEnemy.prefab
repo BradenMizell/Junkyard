@@ -934,7 +934,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8034572860205396773}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 2.5369723
   m_Height: 7.811138
@@ -975,8 +975,6 @@ MonoBehaviour:
   waypoints:
   - {fileID: 7152244673954262688}
   - {fileID: 7152244673944932870}
-  detectDist: 10
-  moveSpd: 3
 --- !u!82 &1835747307847984577
 AudioSource:
   m_ObjectHideFlags: 0

@@ -14,8 +14,8 @@ public class EnemyMoveWall : MonoBehaviour
     GameObject player;
     LineRenderer lr;
 
-    [SerializeField] float detectDist = 1000f;
-    [SerializeField] float moveSpd = 2f;
+    float detectDist = 20f;
+    float moveSpd = 2f;
     float contactDist = 0.2f;
     Vector3 targetPt;
     int currPt = 0;
