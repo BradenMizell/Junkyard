@@ -296,7 +296,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         if (Round(flatVel.magnitude, 1) < goodSpd && !isLaser)
         {
-            if (!isHit)
+            if (!isHit && !isLaser)
             {
                 hitCooldownTimer = 0;
                 healTimer = 0;
@@ -320,7 +320,7 @@ public class PlayerMovement : MonoBehaviour
             src.Play();
             return true;
         }
-        else
+        else if (!isHit)
         {
             hitCooldownTimer = 0;
             healTimer = 0;

@@ -17,7 +17,7 @@ public class EnemyMoveChase : MonoBehaviour
     public List<Transform> waypoints;
     Rigidbody rb;
 
-    [SerializeField] float detectDist = 10f;
+    [SerializeField] float detectDist = 150f;
     [SerializeField] float moveSpd = 3f;
     float contactDist = 1f;
     Vector3 targetPt;
@@ -75,6 +75,9 @@ public class EnemyMoveChase : MonoBehaviour
         if (Vector3.Distance(transform.position, player.transform.position) < contactDist)
         {
             rb.AddForce(transform.forward * -1 * moveSpd);
+            bool dies = false;
+            player.GetComponent<PlayerMovement>().GotHit(false);
+            gameObject.SetActive(!dies);
         }
         else if (Vector3.Distance(transform.position, player.transform.position) > detectDist / 2f)
         {

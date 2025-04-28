@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 8177817113027063175}
   - component: {fileID: 8177817113027063168}
   - component: {fileID: 8177817113027063173}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -820,7 +820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8177817113651268348}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: gunTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -991,7 +991,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8177817114681196894}
   - component: {fileID: 8177817114681196893}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CamObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1098,7 +1098,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -9209846983380120654, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_RootOrder
@@ -1146,7 +1146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7815346712551039913, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -7815346712551039913, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_TagString
@@ -1154,31 +1154,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7602662294175194122, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -7009797857457697962, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -6786132322787638696, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -5589858109038147340, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4388680750337458582, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -1649617630954926075, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -305980792377590529, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Name
@@ -1198,19 +1198,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790183945725220954, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5866106311153970315, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6905609870639353253, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7036213049465896255, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7036213049465896255, guid: 3b65cc783f27bc64a84f4b388eb5c659, type: 3}
       propertyPath: m_TagString

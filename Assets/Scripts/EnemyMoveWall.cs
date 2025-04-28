@@ -14,7 +14,7 @@ public class EnemyMoveWall : MonoBehaviour
     GameObject player;
     LineRenderer lr;
 
-    [SerializeField] float detectDist = 10f;
+    [SerializeField] float detectDist = 200f;
     [SerializeField] float moveSpd = 2f;
     float contactDist = 0.2f;
     Vector3 targetPt;
@@ -25,7 +25,7 @@ public class EnemyMoveWall : MonoBehaviour
     float aimLen = 1;
     float shootLen = 0.5f;
     Vector3 aimPt;
-    [SerializeField] LayerMask lm;
+    LayerMask lm;
 
     private void Start()
     {
@@ -42,7 +42,7 @@ public class EnemyMoveWall : MonoBehaviour
         lr.SetPosition(0, transform.position);
 
         aimPt = player.transform.position;
-        //lm = LayerMask.GetMask("PlayerRead");
+        lm = LayerMask.GetMask("PlayerRead");
     }
 
     void SetPt()
@@ -107,20 +107,24 @@ public class EnemyMoveWall : MonoBehaviour
         }
         else if (shootCt < shootLen){
             lr.material.SetColor("_Color", Color.red);
-
+            lr.SetPosition(1, aimPt);
+            GameObject.FindGameObjectWithTag("PlayerObj").GetComponent<PlayerMovement>().GotHit(true);
             //having trouble getting it to read player object
-            var ray = new Ray(transform.position, aimPt);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, lm))
-            {
-                Debug.Log(hit.transform.gameObject.name);
-                if (hit.transform.gameObject.tag.Equals("Player"))
-                {
-                    Debug.Log("hit!");
-                    GameObject.FindGameObjectWithTag("PlayerObj").GetComponent<PlayerMovement>().GotHit(true);
-                    //deal damage to player
-                }
-            }
+            //var ray = new Ray(transform.position, aimPt);
+            //RaycastHit hit;
+            //if (Physics.Raycast(ray, out hit, Mathf.Infinity, lm))
+            //{
+            //    //if (hit.transform.gameObject.tag.Equals("Player"))
+            //    //{
+            //    //    Debug.Log("hit!");
+            //    //    GameObject.FindGameObjectWithTag("PlayerObj").GetComponent<PlayerMovement>().GotHit(true);
+            //    //    //deal damage to player
+            //    //}
+            //}
+            //else
+            //{
+            //    Debug.Log("nothing");
+            //}
             shootCt += 1 * Time.deltaTime;
         }
         else
