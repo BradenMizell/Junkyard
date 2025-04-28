@@ -63,7 +63,7 @@ public class EnemyMoveChase : MonoBehaviour
         if (Vector3.Distance(transform.position, player.transform.position) <= detectDist){
             state = State.Chase;
         }
-        else if (Vector3.Distance(transform.position, player.transform.position) >= detectDist * 1.5) //so player doesn't escape immediately; more room where it follows than init detect
+        else if (Vector3.Distance(transform.position, player.transform.position) >= detectDist + 1f) //so player doesn't escape immediately; more room where it follows than init detect
         {
             state = State.Idle;
         }
