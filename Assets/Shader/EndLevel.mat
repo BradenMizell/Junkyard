@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Waymarker
+  m_Name: EndLevel
   m_Shader: {fileID: -6465566751694194690, guid: 6e313205e983205458559615580eeb8b, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -30,7 +30,7 @@ Material:
     - _BUILTIN_QueueOffset: 0
     - _Fresnel_power: 1
     m_Colors:
-    - _Fresnel_Color: {r: 4.433468, g: 3.756346, b: 0.02091264, a: 0}
+    - _Fresnel_Color: {r: 0, g: 5.9190283, b: 0.34951064, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6914462857689101778
 MonoBehaviour:
