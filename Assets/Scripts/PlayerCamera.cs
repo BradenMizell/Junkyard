@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public float sensX;
-    public float sensY;
+
+    public Slider slider;
+    public float mouseSensitivity = 100f;
 
     public Transform orientation;
 
@@ -22,8 +24,8 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * mouseSensitivity;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * mouseSensitivity;
 
         yRotation += mouseX;
 
@@ -37,5 +39,10 @@ public class PlayerCamera : MonoBehaviour
     public void DoFov(float endValue)
     {
         GetComponent<Camera>().DOFieldOfView(endValue,0.25f);
+    }
+
+    public void AdjustSpeed(float newSpeed)
+    {
+        mouseSensitivity = newSpeed * 10;
     }
 }

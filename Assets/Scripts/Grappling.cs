@@ -68,8 +68,8 @@ public class Grappling : MonoBehaviour
 
             }
         }
-
-        if (Input.GetKeyDown(grappleKey)) StartGrapple();
+        if (!PauseMenu.isPaused)
+            if (Input.GetKeyDown(grappleKey)) StartGrapple();
 
 
         if (grapplingCdTimer > 0)
