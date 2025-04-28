@@ -35,6 +35,9 @@ public class Swinging : MonoBehaviour
     public AudioClip swingSound;
 
 
+    public GameObject crosshairRed;
+
+
     private void Update()
     {
         if (Input.GetKeyDown(swingKey)) StartSwing();
@@ -94,8 +97,11 @@ public class Swinging : MonoBehaviour
 
     private void StartSwing()
     {
-        src.clip = swingSound;
-        src.Play();
+        if (!crosshairRed.gameObject.activeInHierarchy)
+        {
+            src.clip = swingSound;
+            src.Play();
+        }
 
         // return if predictionHit not found
         if (predictionHit.point == Vector3.zero) return;

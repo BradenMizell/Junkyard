@@ -105,7 +105,7 @@ MonoBehaviour:
   hurtOverlay: {fileID: 8177817114137094114}
   enemyDieAudio: {fileID: 8300000, guid: c3f60395db45a374884c14990be7b31e, type: 3}
   hurtAudio: {fileID: 8300000, guid: 18e319adbcc211c428cb3f132a559691, type: 3}
-  dieAudio: {fileID: 8300000, guid: b8cb727e6ae299d4db02252f86871d53, type: 3}
+  dieAudio: {fileID: 8300000, guid: 992cd21e0d734f946bcb1170e86d3eaf, type: 3}
   text_speed: {fileID: 8177817113217731212}
 --- !u!114 &2288888884651102599
 MonoBehaviour:
@@ -130,10 +130,11 @@ MonoBehaviour:
   overshootYAxis: 1
   grapplingCd: 0.2
   grappleKey: 324
-  src: {fileID: 0}
+  src: {fileID: 7967632444660153543}
   grappleSound: {fileID: 8300000, guid: 686bd6bd50459364fa7a468eab04ff4b, type: 3}
   crosshairRed: {fileID: 8177817113503488331}
   crosshairGreen: {fileID: 8177817113021966427}
+  tooFar: {fileID: 8300000, guid: fc9f86c672d2d4b428f027bd050df099, type: 3}
 --- !u!114 &2288888884651102593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +163,9 @@ MonoBehaviour:
   predictionSphereCastRadius: 3
   predictionPoint: {fileID: 5199845025940810777}
   swingKey: 323
-  src: {fileID: 0}
+  src: {fileID: 7967632444660153543}
   swingSound: {fileID: 8300000, guid: 06f66cdb73be8d643b942833849e8f91, type: 3}
+  crosshairRed: {fileID: 8177817113503488331}
 --- !u!120 &2288888884651102592
 LineRenderer:
   m_ObjectHideFlags: 0
