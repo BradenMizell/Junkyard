@@ -330,6 +330,10 @@ public class PlayerMovement : MonoBehaviour
             isHit = true;
             return false;
         }
+        else
+        {
+            return false;
+        }
     }
 
     void GameOver()
