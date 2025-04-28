@@ -32167,6 +32167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pause menu canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8019163023972205322, guid: 8fcb9ee42e9fc9a418446eb70e2bb0b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8019163023972205323, guid: 8fcb9ee42e9fc9a418446eb70e2bb0b6, type: 3}
       propertyPath: pm
       value: 
