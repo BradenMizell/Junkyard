@@ -17,7 +17,7 @@ public class EnemyMoveChase : MonoBehaviour
     public List<Transform> waypoints;
     Rigidbody rb;
 
-    [SerializeField] float detectDist = 1000f;
+    [SerializeField] float detectDist = 3000f;
     [SerializeField] float moveSpd = 3f;
     float contactDist = 1f;
     Vector3 targetPt;

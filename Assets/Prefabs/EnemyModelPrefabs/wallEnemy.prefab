@@ -425,9 +425,6 @@ MonoBehaviour:
   - {fileID: 7691548683866158956}
   detectDist: 10
   moveSpd: 2
-  lm:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!136 &1100692191636723453
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -438,10 +435,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.6813383
-  m_Height: 4.459115
+  m_Radius: 2.0692399
+  m_Height: 4.836116
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.38790154, y: 0.1885004, z: 0.000000002039402}
 --- !u!82 &1199113924156621857
 AudioSource:
   m_ObjectHideFlags: 0
