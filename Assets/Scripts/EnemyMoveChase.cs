@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //GAME OBJECT NOTES:
@@ -19,9 +20,11 @@ public class EnemyMoveChase : MonoBehaviour
 
     float detectDist = 30f;
     float moveSpd = 10f;
-    float contactDist = 1f;
+    float contactDist = 0.5f;
     Vector3 targetPt;
     int currPt = 0;
+
+    //bool inKnockback = false;
 
     private void Start()
     {
@@ -74,14 +77,25 @@ public class EnemyMoveChase : MonoBehaviour
         targetPt = player.transform.position;
         if (Vector3.Distance(transform.position, player.transform.position) < contactDist)
         {
-            rb.AddForce(transform.forward * -2 * moveSpd);
+            //inKnockback = true;
+            //rb.AddForce(transform.forward * -1f * moveSpd);
+            moveSpd = -moveSpd;
             bool dies = false;
             dies = player.GetComponent<PlayerMovement>().GotHit(false);
             gameObject.SetActive(!dies);
         }
+        //else if (inKnockback && Vector3.Distance(transform.position, player.transform.position) < contactDist * 2f)
+        //{
+        //    return;
+        //}
         else if (Vector3.Distance(transform.position, player.transform.position) > detectDist / 2f)
         {
+            //inKnockback = false;
             rb.velocity = new Vector3(0f, 0f, 0f);
+            if (moveSpd < 1)
+            {
+                moveSpd = -moveSpd;
+            }
         }
     }
 
