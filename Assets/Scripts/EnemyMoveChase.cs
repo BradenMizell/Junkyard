@@ -19,7 +19,7 @@ public class EnemyMoveChase : MonoBehaviour
     Rigidbody rb;
 
     float detectDist = 30f;
-    float moveSpd = 10f;
+    float moveSpd = 8f;
     float contactDist = 0.5f;
     Vector3 targetPt;
     int currPt = 0;
