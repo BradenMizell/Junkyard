@@ -2316,7 +2316,7 @@ MonoBehaviour:
     the enviroment & defeating enemies.
 
     Enemies deal damage to you if they collide
-    with you. BUT if you are going fast enough you deal damage to them'
+    with you. BUT if you are going fast enough, you deal damage to them'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -2969,14 +2969,17 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'CONTROLS:
 
-    Left Mouse: Swing from a grapple point
+    Left Mouse: Grapple to a wall
 
-    Right Mouse:
-    Pull towards grapple point
+    Right Mouse: Pull towards
+    a wall
 
-    WASD: movement while in air
+    WAD: Swing while grappling to a wall
 
-    Esc: Pause Menu'
+    S: Make grapple cord longer
+
+    Esc:
+    Pause Menu'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
